@@ -3,12 +3,11 @@
  * 9 tools: health, hosts, sites, devices, network status, debug
  *
  * UI.com Cloud API shape:
- *   GET /hosts  → { data: Host[] }
- *   Each Host has a nested `devices: Device[]` array (the actual network devices).
- *   GET /devices returns the same host-level envelope — NOT a flat device list.
+ *   GET /hosts  → { data: Host[] }  — consoles/gateways, no device details
+ *   GET /devices → { data: HostWithDevices[] }
+ *     Each item has a top-level `devices: Device[]` array containing the
+ *     actual network devices (APs, switches, PDUs, etc.)
  *   GET /sites  → { data: Site[] }
- *
- * All device tools flatten devices out of the hosts response.
  */
 import { type UnifiAdapter } from './adapters/env.js';
 interface FabricTool {
