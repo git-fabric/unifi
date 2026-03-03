@@ -1,6 +1,14 @@
 /**
  * @git-fabric/unifi — FabricApp factory
  * 9 tools: health, hosts, sites, devices, network status, debug
+ *
+ * UI.com Cloud API shape:
+ *   GET /hosts  → { data: Host[] }
+ *   Each Host has a nested `devices: Device[]` array (the actual network devices).
+ *   GET /devices returns the same host-level envelope — NOT a flat device list.
+ *   GET /sites  → { data: Site[] }
+ *
+ * All device tools flatten devices out of the hosts response.
  */
 import { type UnifiAdapter } from './adapters/env.js';
 interface FabricTool {
