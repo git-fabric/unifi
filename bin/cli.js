@@ -53,11 +53,11 @@ async function registerWithGateway() {
     tailscale_node: 'fabric-unifi',
     worker_pool: { total: 0, healthy: 0, workers: [] },
     routes: [
-      { prefix: 'fabric.network', local_pref: 100, description: 'UniFi network management — devices, sites, hosts, status' },
-      { prefix: 'fabric.network.devices', local_pref: 100, description: 'Network devices — APs, switches, gateways, PDUs' },
-      { prefix: 'fabric.network.sites', local_pref: 100, description: 'UniFi sites — multi-site management' },
-      { prefix: 'fabric.network.hosts', local_pref: 100, description: 'UniFi consoles/gateways — Cloud Key, UDM, UNVR' },
-      { prefix: 'fabric.network.status', local_pref: 100, description: 'Network status — online/offline counts, health overview' },
+      { prefix: 'fabric.network', local_pref: 100, confidence_floor: 0.7, description: 'UniFi network management — devices, sites, hosts, status' },
+      { prefix: 'fabric.network.devices', local_pref: 100, confidence_floor: 0.7, description: 'Network devices — APs, switches, gateways, PDUs' },
+      { prefix: 'fabric.network.sites', local_pref: 100, confidence_floor: 0.7, description: 'UniFi sites — multi-site management' },
+      { prefix: 'fabric.network.hosts', local_pref: 100, confidence_floor: 0.7, description: 'UniFi consoles/gateways — Cloud Key, UDM, UNVR' },
+      { prefix: 'fabric.network.status', local_pref: 100, confidence_floor: 0.7, description: 'Network status — online/offline counts, health overview' },
     ],
   };
 
