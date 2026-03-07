@@ -1,15 +1,4 @@
-/**
- * @git-fabric/unifi — FabricApp factory
- * 9 tools: health, hosts, sites, devices, network status, debug
- *
- * UI.com Cloud API shape:
- *   GET /hosts  → { data: Host[] }  — consoles/gateways, no device details
- *   GET /devices → { data: HostWithDevices[] }
- *     Each item has a top-level `devices: Device[]` array containing the
- *     actual network devices (APs, switches, PDUs, etc.)
- *   GET /sites  → { data: Site[] }
- */
-import { type UnifiAdapter } from './adapters/env.js';
+import type { UnifiAdapter } from './types.js';
 interface FabricTool {
     name: string;
     description: string;
