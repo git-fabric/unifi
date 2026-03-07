@@ -4,12 +4,8 @@
  * Optional: UNIFI_API_BASE (default: https://api.ui.com), UNIFI_API_VERSION (default: v1)
  */
 
-export interface UnifiAdapter {
-  get(path: string, params?: Record<string, string>): Promise<unknown>;
-  post(path: string, body?: unknown): Promise<unknown>;
-  put(path: string, body?: unknown): Promise<unknown>;
-  delete(path: string): Promise<unknown>;
-}
+import type { UnifiAdapter } from '../types.js';
+export type { UnifiAdapter } from '../types.js';
 
 export function createAdapterFromEnv(): UnifiAdapter {
   const key = process.env.UNIFI_API_KEY;
