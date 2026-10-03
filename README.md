@@ -87,7 +87,7 @@ All routes advertise with `local_pref: 100`. The gateway's F-RIB uses these pref
 
 ## Library
 
-The fabric includes a built-in Library (`src/library.ts`) that acts as a reference knowledge layer. When a query does not match a live API pattern, the Library fetches documentation from upstream sources -- currently [`ubiquiti/unifi-api`](https://github.com/ubiquiti/unifi-api) -- via the GitHub raw content API (no local clone needed).
+The fabric includes a built-in Library (`src/library.ts`) that acts as a reference knowledge layer. When a query does not match a live API pattern, the Library fetches documentation from upstream sources -- currently the [UniFi developer docs](https://developer.ui.com) -- via the GitHub raw content API (no local clone needed).
 
 The Library uses a topic index with keyword matching to find relevant files, fetches them on demand, and returns context with a confidence score. This keeps "how to" and "why" questions inside the fabric without hitting Claude.
 
