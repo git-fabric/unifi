@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/banner.svg" alt="unifi: Hosts, sites and devices via the UI.com Cloud API" width="100%"></p>
+
 # @git-fabric/unifi
 
 UniFi fabric app -- hosts, sites, and devices via the UI.com Cloud API as a composable MCP layer. Part of [git-fabric](https://github.com/git-fabric).
@@ -133,3 +135,8 @@ The fabric registers with the gateway on startup and sends keepalives every 30 s
 ## License
 
 MIT
+
+<!-- org-footer -->
+---
+
+<p align="center"><sub>Part of <a href="https://github.com/git-fabric">git-fabric</a> · composable fabric apps for Git-native infrastructure · built by <a href="https://github.com/ry-ops">ry-ops</a></sub></p>
