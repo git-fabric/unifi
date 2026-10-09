@@ -22,6 +22,7 @@ export function createApp(adapterOverride) {
         {
             name: 'unifi_health',
             description: 'Check UniFi Cloud API connectivity and get device count.',
+            annotations: { readOnlyHint: true },
             inputSchema: { type: 'object', properties: {} },
             execute: async () => {
                 try {
@@ -39,6 +40,7 @@ export function createApp(adapterOverride) {
         {
             name: 'unifi_list_hosts',
             description: 'List all UniFi consoles/gateways registered with UI.com.',
+            annotations: { readOnlyHint: true },
             inputSchema: { type: 'object', properties: {} },
             execute: async () => {
                 const r = await ui.get('/hosts');
@@ -48,6 +50,7 @@ export function createApp(adapterOverride) {
         {
             name: 'unifi_get_host',
             description: 'Get details for a specific UniFi console/gateway by host ID.',
+            annotations: { readOnlyHint: true },
             inputSchema: { type: 'object', properties: { host_id: { type: 'string' } }, required: ['host_id'] },
             execute: async (a) => {
                 const r = await ui.get(`/hosts/${a.host_id}`);
@@ -57,6 +60,7 @@ export function createApp(adapterOverride) {
         {
             name: 'unifi_list_sites',
             description: 'List all UniFi sites.',
+            annotations: { readOnlyHint: true },
             inputSchema: { type: 'object', properties: {} },
             execute: async () => {
                 const r = await ui.get('/sites');
@@ -66,6 +70,7 @@ export function createApp(adapterOverride) {
         {
             name: 'unifi_get_site',
             description: 'Get details for a specific UniFi site.',
+            annotations: { readOnlyHint: true },
             inputSchema: { type: 'object', properties: { site_id: { type: 'string' } }, required: ['site_id'] },
             execute: async (a) => {
                 const r = await ui.get(`/sites/${a.site_id}`);
@@ -75,6 +80,7 @@ export function createApp(adapterOverride) {
         {
             name: 'unifi_list_devices',
             description: 'List all UniFi network devices (APs, switches, gateways, PDUs) as a flat list. Returns id, name, model, ip, status (online/offline), mac, version, firmwareStatus, isConsole, productLine.',
+            annotations: { readOnlyHint: true },
             inputSchema: { type: 'object', properties: {} },
             execute: async () => {
                 const devices = await fetchAllDevices(ui);
@@ -86,6 +92,7 @@ export function createApp(adapterOverride) {
         {
             name: 'unifi_get_device',
             description: 'Get details for a specific UniFi device by device ID or MAC address.',
+            annotations: { readOnlyHint: true },
             inputSchema: { type: 'object', properties: { device_id: { type: 'string', description: 'Device ID or MAC address.' } }, required: ['device_id'] },
             execute: async (a) => {
                 const devices = await fetchAllDevices(ui);
@@ -98,6 +105,7 @@ export function createApp(adapterOverride) {
         {
             name: 'unifi_network_status',
             description: 'Get comprehensive network status: hosts, sites, all devices with online/offline counts and per-device summary.',
+            annotations: { readOnlyHint: true },
             inputSchema: { type: 'object', properties: {} },
             execute: async () => {
                 const [hostsR, sitesR, devices] = await Promise.all([
@@ -130,6 +138,7 @@ export function createApp(adapterOverride) {
         {
             name: 'unifi_debug',
             description: 'Debug API connectivity. Returns raw counts from hosts, sites, and devices endpoints.',
+            annotations: { readOnlyHint: true },
             inputSchema: { type: 'object', properties: {} },
             execute: async () => {
                 const tests = {};
